@@ -1,5 +1,7 @@
 package collection;
 
+import org.jetbrains.annotations.NotNull;
+
 public class MyNode<T> {
     T data;
     MyNode<T>  NextNode;
@@ -17,10 +19,17 @@ public class MyNode<T> {
         first = _first;
     }
 
+    public MyNode(@NotNull MyNode<T> Node, boolean _first)
+    {
+        data = Node.getData();
+        first = Node.first;
+    }
+
     public MyNode(T _data, MyNode<T> _nextNode,boolean _first)
     {
         data = _data;
         NextNode = _nextNode;
+        NextNode.first = false;
         first = _first;
     }
 
